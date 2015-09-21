@@ -22,12 +22,15 @@
 	<h4>Использование замещающегося текста (Placeholders)</h4>
 	<p>Путь к сохраненному файлу и дополнительный префикс имени файла могут быть настроены динамически с несколькими заполнителями:
 		<ul>
-			<li><span>{r}</span> - ID ресурса</li>
-			<li><span>{t}</span> - ID доп. поля (tv)</li>
-			<li><span>{u}</span> - ID юзера</li>
-			<li><span>{d}</span> - День месяца</li>
-			<li><span>{m}</span> - Месяц</li>
-			<li><span>{y}</span> - Год</li>
+			<li><span>{r}</span>    - ID ресурса</li>
+			<li><span>{t}</span>    - ID доп. поля (tv)</li>
+			<li><span>{u}</span>    - ID юзера</li>
+			<li><span>{d}</span>    - День месяца</li>
+			<li><span>{m}</span>    - Месяц</li>
+			<li><span>{y}</span>    - Год</li>
+			<li><span>{rand}</span> - Случайная строка из 6 символов</li>
+			<li><span>{dt}</span>   - Дата и время в формате Y-m-d-H-s</li>
+			<li><span>{time}</span> - Время в формате timestamp</li>
 		</ul>
 	</p>
 	<h4>Настройка пути сохранения, используя сниппет</h4>
