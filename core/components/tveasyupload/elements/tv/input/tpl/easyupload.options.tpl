@@ -1,6 +1,9 @@
 <div id="tv-input-properties-form{$tv}"></div>
 {literal}
 <style>
+    .tveasyuploadInfo {
+        margin-top: 20px;
+    }
 	.tveasyuploadInfo h4 {
 		margin-top: 10px;
 	}
@@ -18,26 +21,28 @@
 	
 </style>
 <div class="tveasyuploadInfo">
-	<h3>Dynamic routing options</h3>
-	<h4>Using Placeholders</h4>
-	<p>Both the file save path and the optional filename prefix can be customized dynamically with several placeholders:
+	<h3>Динамические параметры маршрутов</h3>
+	<h4>Использование замещающегося текста (Placeholders)</h4>
+	<p>Путь к сохраненному файлу и дополнительный префикс имени файла могут быть настроены динамически с несколькими заполнителями:
 		<ul>
-			<li><span>{r}</span> - Resource ID</li>
-			<li><span>{t}</span> - TemplateVar ID</li>
-			<li><span>{u}</span> - User ID</li>
-			<li><span>{d}</span> - Day of month</li>
-			<li><span>{m}</span> - Month</li>
-			<li><span>{y}</span> - Year</li>
+			<li><span>{r}</span>    - ID ресурса</li>
+			<li><span>{t}</span>    - ID доп. поля (tv)</li>
+			<li><span>{u}</span>    - ID юзера</li>
+			<li><span>{d}</span>    - День месяца</li>
+			<li><span>{m}</span>    - Месяц</li>
+			<li><span>{y}</span>    - Год</li>
+			<li><span>{rand}</span> - Случайная строка из 6 символов</li>
+			<li><span>{dt}</span>   - Дата и время в формате Y-m-d-H-s</li>
+			<li><span>{time}</span> - Время в формате timestamp</li>
 		</ul>
 	</p>
-	<h4>Setting Save Path using a snippet</h4>
-	<p>You can also specify a snippet that returns a path string for advanced routing by using the @SNIPPET prefix</p>
-	<p>e.g. <code>@SNIPPET myPathingSnippet</code></p>
-	<h4>Input File MIME types</h4>
-	<p>MIME types describe the type of file to be uploaded and relate to the file extension.</p>
-	<p>Multiple upload types can be specified using a comma-separated list.</p>
-	<p>e.g. <code>image/jpeg, image/png, application/pdf</code></p>
-	<p>A (mostly) full list can be found <a href="http://webdesign.about.com/od/multimedia/a/mime-types-by-file-extension.htm" target="_blank">here</a>.</p>
+	<h4>Настройка пути сохранения, используя сниппет</h4>
+	<p>Вы также можете указать сниппет, который возвращает строку пути для продвинутой маршрутизации с помощью префикса @SNIPPET</p>
+	<p>Например, <code>@SNIPPET myPathingSnippet</code></p>
+	<h4>Ограничение типов файлов, используя MIME</h4>
+	<p>Опишите через запятую MIME-типы, которые могут быть загружены.</p>
+	<p>Например, <code>image/jpeg, image/png, application/pdf</code></p>
+	<p>Полный список MIME-типов можно найти <a href="http://webdesign.about.com/od/multimedia/a/mime-types-by-file-extension.htm" target="_blank">здесь</a>.</p>
 </div>
 
 

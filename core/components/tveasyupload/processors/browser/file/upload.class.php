@@ -78,7 +78,7 @@ public function process() {
 
 
         // Prepare file names (prevent duplicate overwrites)
-        $prefix = $this->getProperty('tv_id').'-'.$this->getProperty('res_id').'.';
+        $prefix = '';
         if(isset($opts['prefix']) && $opts['prefix'] != ''){
                 $prefix = $opts['prefix'].$prefix;
         };
@@ -145,8 +145,10 @@ private function ensureSavePathExists($path){
 //----------------------------------------------------------------------------
 private function prepareFiles($prefix){
 		$files = $_FILES;
+        $doc = $this->modx->newObject('modResource');
 		foreach($files as &$file){
-			$file['name'] = $this->parsePlaceholders($prefix.$file['name']);
+			$pathInfo = pathinfo($file['name']);
+			$file['name'] = $this->parsePlaceholders($prefix.$doc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension']);
 		};
 		return $files;
 	}//
@@ -158,10 +160,13 @@ private function parsePlaceholders($str){
 		$bits = array(
 			'{r}' => $this->getProperty('res_id'),		// Resource ID
 			'{t}' => $this->getProperty('tv_id'),		// TV ID
-			'{d}' => date('j'),							// Day
-			'{m}' => date('n'),							// Month
+			'{d}' => date('d'),							// Day
+			'{m}' => date('m'),							// Month
 			'{y}' => date('Y'),							// Year
-			'{u}' => $this->modx->user->get('id')		// User ID
+			'{u}' => $this->modx->user->get('id'),		// User ID
+            '{rand}'    => substr(uniqid(), 0, 6),      // Random string
+            '{dt}'      => date('Y-m-d-H-s'),           // DateTime format Y-m-d-H-s
+            '{time}'    => time()                       // Timestamp
 		);
 		return str_replace( array_keys($bits), $bits, $str);
 	}//
