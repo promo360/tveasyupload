@@ -32,8 +32,8 @@ public function process($value,array $params = array()) {
         $this->setPlaceholder('tv_id',$rootTv->get('id'));
 
         $opts = unserialize($rootTv->input_properties);
-        $this->setPlaceholder('showValue', ($opts['showValue']=='Yes' ? 'true' : 'false'));
-        $this->setPlaceholder('showPreview', ($opts['showPreview']=='Yes'? 'true' : 'false'));
+        $this->setPlaceholder('showValue', ($opts['showValue']==$this->modx->lexicon('yes') ? 'true' : 'false'));
+        $this->setPlaceholder('showPreview', ($opts['showPreview']==$this->modx->lexicon('yes') ? 'true' : 'false'));
 
         $tv = $this->tv;
 
