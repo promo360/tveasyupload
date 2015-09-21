@@ -160,8 +160,8 @@ private function parsePlaceholders($str){
 		$bits = array(
 			'{r}' => $this->getProperty('res_id'),		// Resource ID
 			'{t}' => $this->getProperty('tv_id'),		// TV ID
-			'{d}' => date('j'),							// Day
-			'{m}' => date('n'),							// Month
+			'{d}' => date('d'),							// Day
+			'{m}' => date('m'),							// Month
 			'{y}' => date('Y'),							// Year
 			'{u}' => $this->modx->user->get('id')		// User ID
 		);
