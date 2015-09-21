@@ -78,7 +78,7 @@ public function process() {
 
 
         // Prepare file names (prevent duplicate overwrites)
-        $prefix = $this->getProperty('tv_id').'-'.$this->getProperty('res_id').'.';
+        $prefix = '';
         if(isset($opts['prefix']) && $opts['prefix'] != ''){
                 $prefix = $opts['prefix'].$prefix;
         };
