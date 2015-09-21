@@ -163,7 +163,7 @@ private function parsePlaceholders($str){
 			'{d}' => date('d'),							// Day
 			'{m}' => date('m'),							// Month
 			'{y}' => date('Y'),							// Year
-			'{u}' => $this->modx->user->get('id')		// User ID
+			'{u}' => $this->modx->user->get('id'),		// User ID
             '{rand}'    => substr(uniqid(), 0, 6),      // Random string
             '{dt}'      => date('Y-m-d-H-s'),           // DateTime format Y-m-d-H-s
             '{time}'    => time()                       // Timestamp
