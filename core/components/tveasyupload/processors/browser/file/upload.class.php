@@ -145,8 +145,10 @@ private function ensureSavePathExists($path){
 //----------------------------------------------------------------------------
 private function prepareFiles($prefix){
 		$files = $_FILES;
+        $doc = $this->modx->newObject('modResource');
 		foreach($files as &$file){
-			$file['name'] = $this->parsePlaceholders($prefix.$file['name']);
+			$pathInfo = pathinfo($file['name']);
+			$file['name'] = $this->parsePlaceholders($prefix.$doc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension']);
 		};
 		return $files;
 	}//

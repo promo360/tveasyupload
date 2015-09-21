@@ -17,4 +17,17 @@ switch ($modx->event->name) {
         $modx->regClientStartupScript($js.'EasyUpload.js');
         $modx->regClientStartupScript($js.'EasyUpload.form.EasyUploadField.js');
         break;
+    case 'OnFileManagerUpload':
+        $currentdoc = $modx->newObject('modResource');
+        foreach($files as $file)
+        {
+            if($file['error'] == 0)
+            {
+              $pathInfo = pathinfo($file['name']);
+              $oldPath = $directory.$file['name'];
+              $newPath = $currentdoc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension'];
+              $source->renameObject($oldPath, $newPath);
+            }
+        }
+        break;
 }
