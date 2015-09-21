@@ -1,6 +1,9 @@
 <div id="tv-input-properties-form{$tv}"></div>
 {literal}
 <style>
+    .tveasyuploadInfo {
+        margin-top: 20px;
+    }
 	.tveasyuploadInfo h4 {
 		margin-top: 10px;
 	}
@@ -37,8 +40,7 @@
 	<p>Вы также можете указать сниппет, который возвращает строку пути для продвинутой маршрутизации с помощью префикса @SNIPPET</p>
 	<p>Например, <code>@SNIPPET myPathingSnippet</code></p>
 	<h4>Ограничение типов файлов, используя MIME</h4>
-	<p>Опишите MIME-типы, которые могут быть загружены.</p>
-	<p>Несколько типов файлов можно указать через запятую.</p>
+	<p>Опишите через запятую MIME-типы, которые могут быть загружены.</p>
 	<p>Например, <code>image/jpeg, image/png, application/pdf</code></p>
 	<p>Полный список MIME-типов можно найти <a href="http://webdesign.about.com/od/multimedia/a/mime-types-by-file-extension.htm" target="_blank">здесь</a>.</p>
 </div>
