@@ -159,6 +159,7 @@ private function prepareFiles($prefix){
 private function parsePlaceholders($str){
 		$bits = array(
 			'{r}' => $this->getProperty('res_id'),		// Resource ID
+			'{p}' => $this->getProperty('p_id'),		// Resource Parent ID
 			'{t}' => $this->getProperty('tv_id'),		// TV ID
 			'{d}' => date('d'),							// Day
 			'{m}' => date('m'),							// Month

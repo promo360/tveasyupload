@@ -10,6 +10,7 @@
         altText: '{$lex->replace_file}',
         clearText: '{$lex->clear_file}',
         res_id: {$res_id},
+        p_id: {$p_id},
         tv_id: {$tv_id},
         ms_id: {$ms_id},
         acceptedMIMEtypes: {$MIME_TYPES},
