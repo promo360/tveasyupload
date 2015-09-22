@@ -23,6 +23,11 @@ public function process($value,array $params = array()) {
 		$this->setPlaceholder('ms_id',$this->tv->source);
         $this->setPlaceholder('jsonlex',json_encode($this->modx->lexicon->fetch('tveasyupload.',true)));
         $this->setPlaceholder('lex',(object)$this->modx->lexicon->fetch('tveasyupload.',true));
+        
+        // Parent ID
+        $parent = $this->modx->resource->getOne('Parent');
+        $parent_id = ($parent) ? $parent->get('id') : 0;
+ 		$this->setPlaceholder('p_id', $parent_id);
 
         // Longwinded method to get tv_id to work with MIGX
         #$this->setPlaceholder('tv_id',$this->tv->get('id'));
