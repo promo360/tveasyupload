@@ -89,19 +89,3 @@
     $modx->log(modX::LOG_LEVEL_INFO,"Package Built in {$totalTime}");
 
     exit ();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
