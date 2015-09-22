@@ -1,4 +1,4 @@
-<div id="easyuploadtv{$tv->id}" style="width:700px; height:100px"></div>
+<div id="easyuploadtv{$tv->id}" style="width:400px"></div>
 <script type="text/javascript">
     myTV{$tv->id} = MODx.load{literal}({
     {/literal}
