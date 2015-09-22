@@ -24,10 +24,18 @@ public function process($value,array $params = array()) {
         $this->setPlaceholder('jsonlex',json_encode($this->modx->lexicon->fetch('tveasyupload.',true)));
         $this->setPlaceholder('lex',(object)$this->modx->lexicon->fetch('tveasyupload.',true));
         
+        // Resource Alias
+        $resource_alias = ($this->modx->resource->get('alias')) ? $this->modx->resource->get('alias') : 'none';
+        $this->setPlaceholder('res_alias', $resource_alias);
+        
         // Parent ID
         $parent = $this->modx->resource->getOne('Parent');
         $parent_id = ($parent) ? $parent->get('id') : 0;
  		$this->setPlaceholder('p_id', $parent_id);
+        
+        // Parent Alias
+        $parent_alias = ($parent) ? $parent->get('alias') : 'none';
+ 		$this->setPlaceholder('p_alias', $parent_alias);
 
         // Longwinded method to get tv_id to work with MIGX
         #$this->setPlaceholder('tv_id',$this->tv->get('id'));

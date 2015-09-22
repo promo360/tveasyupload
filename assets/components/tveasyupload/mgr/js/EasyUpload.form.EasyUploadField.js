@@ -52,7 +52,9 @@ Ext.extend(EasyUpload.form.EasyUploadField,Ext.form.TextField,{
             ,baseParams: {
                 action: 'browser/file/upload'
                 ,res_id: this.res_id
+                ,res_alias: this.res_alias
                 ,p_id: this.p_id
+                ,p_alias: this.p_alias
                 ,tv_id: this.tv_id
                 ,ms_id: this.ms_id
             }
