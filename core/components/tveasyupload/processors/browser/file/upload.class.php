@@ -125,7 +125,7 @@ private function preparePath($pathStr){
         // If the pathStr starts '@SNIPPET ' then run the snippet to get path
         if(strpos($pathStr,'@SNIPPET ') !== false){
             $snippet = str_replace('@SNIPPET ','',$pathStr);
-            return $this->modx->runSnippet($pathStr);
+            return $this->modx->runSnippet($snippet, $this->getProperties());
         };
 
         // Parse path string and return it
