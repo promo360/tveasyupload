@@ -9,8 +9,11 @@ offering single-button file selection & uploading without the use of the MODx fi
 set on the TV itself, so the content-editor doesn't have to worry about where to save to.
 
 ### Installation Instructions
-Install this package through the Package Manager or download from the [MODx Extras Repository](link to come).
-Once installed, 'Simple File Upload' will become an option in the TV Input Type selection list.
+1. Install `Simple File Upload TV` from the control panel
+2. Replace files `/core/components/tveasyupload/`
+3. Replace files `/assets/components/tveasyupload/`
+4. In the control panel tab `Elements` find plugins `EasyUpload`
+5. Click the `System events` mark the event `OnFileManagerUpload` and save
 
 
 ### Input Configuration Options
