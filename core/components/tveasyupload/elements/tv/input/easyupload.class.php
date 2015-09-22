@@ -6,28 +6,34 @@ class EasyUploadInputRender extends modTemplateVarInputRender {
     }
     
 public function process($value,array $params = array()) {
-    	$js  = $this->modx->getOption('assets_url').'components/tveasyupload/mgr/js/';
-
-
+        $js  = $this->modx->getOption('assets_url').'components/tveasyupload/mgr/js/';
+        
         $this->modx->regClientStartupScript($js.'widgets/modx.form.filefield.js');
         $this->modx->regClientStartupScript($js.'EasyUpload.js');
- 		$this->modx->regClientStartupScript($js.'EasyUpload.form.EasyUploadField.js');
+        $this->modx->regClientStartupScript($js.'EasyUpload.form.EasyUploadField.js');
 
-
- 		// Set assets path
- 		$this->setPlaceholder('assets',$this->modx->getOption('assets_url').'components/tveasyupload/');
- 		
- 		$this->modx->lexicon->load('tveasyupload');
- 		
- 		$this->setPlaceholder('res_id',$this->modx->resource->get('id'));
-		$this->setPlaceholder('ms_id',$this->tv->source);
+        // Set assets path
+        $this->setPlaceholder('assets',$this->modx->getOption('assets_url').'components/tveasyupload/');
+        
+        $this->modx->lexicon->load('tveasyupload');
+        
+        $this->setPlaceholder('res_id',$this->modx->resource->get('id'));
+        $this->setPlaceholder('ms_id',$this->tv->source);
         $this->setPlaceholder('jsonlex',json_encode($this->modx->lexicon->fetch('tveasyupload.',true)));
         $this->setPlaceholder('lex',(object)$this->modx->lexicon->fetch('tveasyupload.',true));
+        
+        // Resource Alias
+        $resource_alias = ($this->modx->resource->get('alias')) ? $this->modx->resource->get('alias') : 'none';
+        $this->setPlaceholder('res_alias', $resource_alias);
         
         // Parent ID
         $parent = $this->modx->resource->getOne('Parent');
         $parent_id = ($parent) ? $parent->get('id') : 0;
- 		$this->setPlaceholder('p_id', $parent_id);
+        $this->setPlaceholder('p_id', $parent_id);
+        
+        // Parent Alias
+        $parent_alias = ($parent) ? $parent->get('alias') : 'none';
+        $this->setPlaceholder('p_alias', $parent_alias);
 
         // Longwinded method to get tv_id to work with MIGX
         #$this->setPlaceholder('tv_id',$this->tv->get('id'));
@@ -41,20 +47,18 @@ public function process($value,array $params = array()) {
         $this->setPlaceholder('showPreview', ($opts['showPreview']==$this->modx->lexicon('yes') ? 'true' : 'false'));
 
         $tv = $this->tv;
-
-
-
-		if(isset($params['MIME'])){
-			$MIME = $params['MIME'];
-		} else {
-			$MIME = '';
-		};
- 		$this->setPlaceholder('MIME_TYPES',json_encode($MIME));
+        
+        if(isset($params['MIME'])){
+            $MIME = $params['MIME'];
+        } else {
+            $MIME = '';
+        };
+        $this->setPlaceholder('MIME_TYPES',json_encode($MIME));
     }//
     
     
     public function getLexiconTopics(){
-    	return array('tveasyupload:default');
+        return array('tveasyupload:default');
     }
 }
 return 'EasyUploadInputRender';

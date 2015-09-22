@@ -12,18 +12,18 @@ class easyBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
 // Remove the need to pass it a path - generate path here instead
 //--------------------------------------------------------------------------
 public function initialize() {
-		$this->setDefaultProperties(array(
-			'source' => 1,
-			'path' => false,
-		));
-		return true;
+        $this->setDefaultProperties(array(
+            'source' => 1,
+            'path' => false,
+        ));
+        return true;
     }//
 
 // Add our custom lexicon to the mix
 //---------------------------------------------------------------------------
 public function getLanguageTopics() {
-    	$langs = parent::getLanguageTopics();
-    	$langs[] = 'tveasyupload';
+        $langs = parent::getLanguageTopics();
+        $langs[] = 'tveasyupload';
         return $langs;
     }//
 
@@ -32,7 +32,7 @@ public function getLanguageTopics() {
 //---------------------------------------------------------------------------
 public function process() {
 
-    	// Grab the mediasource
+        // Grab the mediasource
         if (!$this->getSource()) {
             return $this->failure($this->modx->lexicon('permission_denied'));
         }
@@ -50,20 +50,20 @@ public function process() {
             return $this->failure($this->modx->lexicon('permission_denied'));
         }
  */       
-		// Ensure we have been passed the TV's id
+        // Ensure we have been passed the TV's id
         if (!$this->getProperty('tv_id')){
-        	return $this->failure($this->modx->lexicon('tveasyupload.error_tvid_ns'));
+            return $this->failure($this->modx->lexicon('tveasyupload.error_tvid_ns'));
         };
         
         // Grab the TV object
-		$TV = $this->modx->getObject('modTemplateVar',$this->getProperty('tv_id'));
-		if(! $TV instanceof modTemplateVar){
-        	return $this->failure($this->modx->lexicon('tveasyupload.error_tvid_invalid')."<br />\n[".$this->getProperty('tv_id')."]");
-		};
-		
+        $TV = $this->modx->getObject('modTemplateVar',$this->getProperty('tv_id'));
+        if(! $TV instanceof modTemplateVar){
+            return $this->failure($this->modx->lexicon('tveasyupload.error_tvid_invalid')."<br />\n[".$this->getProperty('tv_id')."]");
+        };
+        
         // Initialize and check perms for this mediasource
-		$this->source = $TV->getSource('web');
-		$this->source->initialize();
+        $this->source = $TV->getSource('web');
+        $this->source->initialize();
         if (!$this->source->checkPolicy('create')) {
             return $this->failure($this->modx->lexicon('permission_denied'));
         }
@@ -87,7 +87,7 @@ public function process() {
         // Do the upload
         $success = $this->source->uploadObjectsToContainer($path,$files);
 
-	    /* Check for upload errors
+        /* Check for upload errors
          * Remove 'directory already exists' error
          * @since v1.2.1
          */
@@ -108,7 +108,7 @@ public function process() {
         $fName = array_shift($files); $fName = $fName['name'];
         $url = $this->source->getObjectUrl($path.'/'.$fName);
        
-       	$url = str_replace('//','/',$url);
+        $url = str_replace('//','/',$url);
        
         return $this->success(stripslashes($url));
             /*stripslashes(json_encode( (object)array(
@@ -122,55 +122,57 @@ public function process() {
 //----------------------------------------------------------------------------
 private function preparePath($pathStr){
 
-		// If the pathStr starts '@SNIPPET ' then run the snippet to get path
-		if(strpos($pathStr,'@SNIPPET ') !== false){
-			$snippet = str_replace('@SNIPPET ','',$pathStr);
-			return $this->modx->runSnippet($pathStr);
-		};
+        // If the pathStr starts '@SNIPPET ' then run the snippet to get path
+        if(strpos($pathStr,'@SNIPPET ') !== false){
+            $snippet = str_replace('@SNIPPET ','',$pathStr);
+            return $this->modx->runSnippet($pathStr);
+        };
 
-		// Parse path string and return it
-		$path = $this->parsePlaceholders($pathStr);
-		return $path;
-	}//
+        // Parse path string and return it
+        $path = $this->parsePlaceholders($pathStr);
+        return $path;
+    }//
 
 
 // Ensure save path exists (and create it if not)
 //----------------------------------------------------------------------------
 private function ensureSavePathExists($path){
-		$this->source->createContainer($path,'');
-	}//
+        $this->source->createContainer($path,'');
+    }//
 
 
 // Prepare file name (prevent accidental overwrites)
 //----------------------------------------------------------------------------
 private function prepareFiles($prefix){
-		$files = $_FILES;
+        $files = $_FILES;
         $doc = $this->modx->newObject('modResource');
-		foreach($files as &$file){
-			$pathInfo = pathinfo($file['name']);
-			$file['name'] = $this->parsePlaceholders($prefix.$doc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension']);
-		};
-		return $files;
-	}//
+        foreach($files as &$file){
+            $pathInfo = pathinfo($file['name']);
+            $file['name'] = $this->parsePlaceholders($prefix.$doc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension']);
+        };
+        return $files;
+    }//
 
 
 // Parse placeholders in input fields
 //-----------------------------------------------------------------------------
 private function parsePlaceholders($str){
-		$bits = array(
-			'{r}' => $this->getProperty('res_id'),		// Resource ID
-			'{p}' => $this->getProperty('p_id'),		// Resource Parent ID
-			'{t}' => $this->getProperty('tv_id'),		// TV ID
-			'{d}' => date('d'),							// Day
-			'{m}' => date('m'),							// Month
-			'{y}' => date('Y'),							// Year
-			'{u}' => $this->modx->user->get('id'),		// User ID
+        $bits = array(
+            '{r}' => $this->getProperty('res_id'),      // Resource ID
+            '{ra}'=> $this->getProperty('res_alias'),   // Resource Alias
+            '{p}' => $this->getProperty('p_id'),        // Resource Parent ID
+            '{pa}'=> $this->getProperty('p_alias'),     // Resource Parent Alias
+            '{t}' => $this->getProperty('tv_id'),       // TV ID
+            '{d}' => date('d'),                         // Day
+            '{m}' => date('m'),                         // Month
+            '{y}' => date('Y'),                         // Year
+            '{u}' => $this->modx->user->get('id'),      // User ID
             '{rand}'    => substr(uniqid(), 0, 6),      // Random string
             '{dt}'      => date('Y-m-d-H-s'),           // DateTime format Y-m-d-H-s
             '{time}'    => time()                       // Timestamp
-		);
-		return str_replace( array_keys($bits), $bits, $str);
-	}//
+        );
+        return str_replace( array_keys($bits), $bits, $str);
+    }//
 
 
 };// end class easyBrowserFileUploadProcessor 

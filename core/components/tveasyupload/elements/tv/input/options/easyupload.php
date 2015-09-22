@@ -7,10 +7,18 @@ $modx->lexicon->load('tveasyupload:default');
 $L = new stdClass;
 
 
-
 $mlang = $modx->getOption('cultureKey');
 $LL = $modx->lexicon->getFileTopic($mlang,'tveasyupload','default');
 
 $modx->controller->setPlaceholder('tveulex',json_encode($LL));
+
+
+// Options Description
+$options_desc_tpl = $modx->getOption('core_path').'components/tveasyupload/lexicon/'.$mlang.'/options.desc.tpl';
+if (!file_exists($options_desc_tpl)) {
+    $options_desc_tpl = $modx->getOption('core_path').'components/tveasyupload/lexicon/en/options.desc.tpl';
+}
+$modx->smarty->assign("options_desc_tpl", $options_desc_tpl);
+
 
 return $modx->smarty->fetch($root.'tpl/easyupload.options.tpl');
