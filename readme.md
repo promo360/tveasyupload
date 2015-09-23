@@ -13,7 +13,7 @@ set on the TV itself, so the content-editor doesn't have to worry about where to
 2. Replace files `/core/components/tveasyupload/`
 3. Replace files `/assets/components/tveasyupload/`
 4. In the control panel tab `Elements` find plugins `EasyUpload`
-5. Click the `System events` mark the event `OnFileManagerUpload` and save
+5. Click the `System events` mark the events `OnFileManagerUpload`, `OnWebPageInit` and save
 
 
 ### Input Configuration Options
