@@ -17,6 +17,10 @@ switch ($modx->event->name) {
         $modx->regClientStartupScript($js.'EasyUpload.js');
         $modx->regClientStartupScript($js.'EasyUpload.form.EasyUploadField.js');
         break;
+    case 'OnWebPageInit':
+        $mTypes = $modx->getOption('manipulatable_url_tv_output_types',null,'image,file').',easyupload';
+        $modx->setOption('manipulatable_url_tv_output_types', $mTypes);
+        break;
     case 'OnFileManagerUpload':
         $currentdoc = $modx->newObject('modResource');
         foreach($files as $file)

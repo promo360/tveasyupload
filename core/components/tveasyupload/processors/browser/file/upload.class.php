@@ -106,8 +106,8 @@ public function process() {
         
         // Generate the file's url
         $fName = array_shift($files); $fName = $fName['name'];
-        $url = $this->source->getObjectUrl($path.'/'.$fName);
-       
+        //$url = $this->source->getObjectUrl($path.'/'.$fName);
+        $url = $path.'/'.$fName;
         $url = str_replace('//','/',$url);
        
         return $this->success(stripslashes($url));
