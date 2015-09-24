@@ -122,9 +122,9 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
             ,style: {
                 display: 'inline'
                 ,position: 'relative'
-                ,'top': '0px'
-                ,'margin-left':'-3.1em'
-                ,'margin-top':'0.6em'
+                ,'bottom': '10px'
+                ,'margin-left':'3.1em'
+                ,'margin-top':'0.1em'
                 ,cursor: 'pointer'
                 ,float: 'left'
                 ,position: 'absolute'
