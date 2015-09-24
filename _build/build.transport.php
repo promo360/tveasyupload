@@ -1,6 +1,6 @@
 <?php
-    require dirname(__FILE__).'/tools/build.tools.php';
-    require dirname(__FILE__).'/build.config.php';
+    require_once 'tools/build.tools.php';
+    require_once 'build.config.php';
 
     Tools::startTimer();
 
