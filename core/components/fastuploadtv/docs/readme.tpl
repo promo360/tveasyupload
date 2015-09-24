@@ -30,12 +30,20 @@ You can even restrict file upload types by specifying required MIME types!
 Both the file `Save Path` and `File Prefix` fields can be customised by editing the corresponding fields in
 the TV Input Options tab. Both options can be customized dynamically with several placeholders:
 {literal}
-* `{r}` - Resource ID
-* `{t}` - TemplateVar ID
-* `{u}` - User ID
-* `{d}` - Day of month
-* `{m}` - Month
-* `{y}` - Year
+* `{id}`     - Resource ID
+* `{pid}`    - Resource Parent ID
+* `{alias}`  - Resource Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)
+* `{palias}` - Resource Parent Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)
+* `{tid}`    - TV ID
+* `{uid}`    - User ID
+* `{rand}`   - Random string
+* `{t}`      - Timestamp
+* `{y}`      - Year
+* `{m}`      - Month
+* `{d}`      - Day
+* `{h}`      - Hour
+* `{i}`      - Minute
+* `{s}`      - Second
 {/literal}
 #### Advanced Save Path routing using Snippets
 You can also specify a snippet that returns a path string for advanced routing by using the @SNIPPET prefix

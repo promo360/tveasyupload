@@ -158,18 +158,20 @@ private function prepareFiles($prefix){
 //-----------------------------------------------------------------------------
 private function parsePlaceholders($str){
         $bits = array(
-            '{r}' => $this->getProperty('res_id'),      // Resource ID
-            '{ra}'=> $this->getProperty('res_alias'),   // Resource Alias
-            '{p}' => $this->getProperty('p_id'),        // Resource Parent ID
-            '{pa}'=> $this->getProperty('p_alias'),     // Resource Parent Alias
-            '{t}' => $this->getProperty('tv_id'),       // TV ID
-            '{d}' => date('d'),                         // Day
-            '{m}' => date('m'),                         // Month
-            '{y}' => date('Y'),                         // Year
-            '{u}' => $this->modx->user->get('id'),      // User ID
-            '{rand}'    => substr(uniqid(), 0, 6),      // Random string
-            '{dt}'      => date('Y-m-d-H-s'),           // DateTime format Y-m-d-H-s
-            '{time}'    => time()                       // Timestamp
+            '{id}'      => $this->getProperty('res_id'),    // Resource ID
+            '{pid}'     => $this->getProperty('p_id'),      // Resource Parent ID
+            '{alias}'   => $this->getProperty('res_alias'), // Resource Alias
+            '{palias}'  => $this->getProperty('p_alias'),   // Resource Parent Alias
+            '{tid}'     => $this->getProperty('tv_id'),     // TV ID
+            '{uid}'     => $this->modx->user->get('id'),    // User ID
+            '{rand}'    => substr(uniqid(), 0, 6),          // Random string
+            '{t}' => time()     // Timestamp
+            '{y}' => date('Y'), // Year
+            '{m}' => date('m'), // Month
+            '{d}' => date('d'), // Day
+            '{h}' => date('H'), // Hour
+            '{i}' => date('i'), // Minute
+            '{s}' => date('s'), // Second
         );
         return str_replace( array_keys($bits), $bits, $str);
     }//

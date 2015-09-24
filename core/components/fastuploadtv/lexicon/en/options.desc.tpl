@@ -3,18 +3,20 @@
 <h4>Using Placeholders</h4>
 <p>Both the file save path and the optional filename prefix can be customized dynamically with several placeholders:
     <ul>
-        <li><span>{r}</span>    - Resource ID</li>
-        <li><span>{p}</span>    - Resource Parent ID</li>
-        <li><span>{ra}</span>   - Resource Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)</li>
-        <li><span>{pa}</span>   - Resource Parent Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)</li>
-        <li><span>{t}</span>    - TemplateVar ID</li>
-        <li><span>{u}</span>    - User ID</li>
-        <li><span>{d}</span>    - Day of month</li>
-        <li><span>{m}</span>    - Month</li>
-        <li><span>{y}</span>    - Year</li>
-        <li><span>{rand}</span> - Random string of 6 characters</li>
-        <li><span>{dt}</span>   - Date and time format Y-m-d-H-s</li>
-        <li><span>{time}</span> - Time format timestamp</li>
+        <li><span>{id}</span>     - Resource ID</li>
+        <li><span>{pid}</span>    - Resource Parent ID</li>
+        <li><span>{alias}</span>  - Resource Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)</li>
+        <li><span>{palias}</span> - Resource Parent Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)</li>
+        <li><span>{tid}</span>    - TV ID</li>
+        <li><span>{uid}</span>    - User ID</li>
+        <li><span>{rand}</span>   - Random string</li>
+        <li><span>{t}</span>      - Timestamp</li>
+        <li><span>{y}</span>      - Year</li>
+        <li><span>{m}</span>      - Month</li>
+        <li><span>{d}</span>      - Day</li>
+        <li><span>{h}</span>      - Hour</li>
+        <li><span>{i}</span>      - Minute</li>
+        <li><span>{s}</span>      - Second</li>
     </ul>
 </p>
 <h4>Setting Save Path using a snippet</h4>
