@@ -18,9 +18,9 @@
     // Create the plugin object ----------------------------------------------------------
     $plugin= $modx->newObject('modPlugin');
     $plugin->set('id',1);
-    $plugin->set('name', 'EasyUpload');
+    $plugin->set('name', 'FastUploadTV');
     $plugin->set('description', PKG_NAME.' '.PKG_VERSION.'-'.PKG_RELEASE.' plugin for MODx Revolution');
-    $plugin->set('plugincode', file_get_contents($sources['source_core'] . '/elements/plugins/plugin.EasyUpload.php'));
+    $plugin->set('plugincode', file_get_contents($sources['source_core'] . '/elements/plugins/plugin.FastUploadTV.php'));
     $plugin->set('category', 0);
 
 
