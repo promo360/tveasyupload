@@ -25,7 +25,7 @@
     }
     
     require_once $MODX_BASE_PATH . 'config.core.php';
-    require_once $MODX_BASE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php';
+    require_once MODX_CORE_PATH . 'config/' . MODX_CONFIG_KEY . '.inc.php';
 
     /* Package sources */
     $sources = array(
