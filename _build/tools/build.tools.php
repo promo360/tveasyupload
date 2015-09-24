@@ -58,7 +58,7 @@
          * @param string repoRoot Path to repository root
          * @return string commit hash
          */
-        function getGitCommitId( $repoRoot ){
+        public static function getGitCommitId( $repoRoot ){
             // Check git exists
             $whichGit = `which git`;
             if(empty($whichGit)){ return ''; };
