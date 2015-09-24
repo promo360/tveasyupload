@@ -1,9 +1,9 @@
-<div id="easyuploadtv{$tv->id}" style="width:400px"></div>
+<div id="fastuploadtv{$tv->id}" style="width:400px"></div>
 <script type="text/javascript">
     myTV{$tv->id} = MODx.load{literal}({
     {/literal}
-        xtype: 'EasyUploadTV',
-        renderTo: 'easyuploadtv{$tv->id}',
+        xtype: 'FastUploadTV',
+        renderTo: 'fastuploadtv{$tv->id}',
         url: '{$assets}connector.php',
         name: 'tv{$tv->id}',
         text: '{$lex->upload_file}',

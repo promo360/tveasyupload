@@ -1,6 +1,6 @@
-EasyUpload = {};
+FastUploadTV = {};
 
-EasyUpload.Button = function(config) { 
+FastUploadTV.Button = function(config) { 
     config = config || {};
     Ext.applyIf(config,{
         cls: 'button',
@@ -105,7 +105,7 @@ EasyUpload.Button = function(config) {
     MODx.Panel.superclass.constructor.call(this,config);
     this.config = config;
 };
-Ext.extend(EasyUpload.Button,MODx.FormPanel,{
+Ext.extend(FastUploadTV.Button,MODx.FormPanel,{
 
     
 onInputFileChange: function(){
@@ -189,4 +189,4 @@ onInputFileChange: function(){
     }//
 
 });
-Ext.reg('easyupload-button',EasyUpload.Button);
+Ext.reg('fastuploadtv-button',FastUploadTV.Button);

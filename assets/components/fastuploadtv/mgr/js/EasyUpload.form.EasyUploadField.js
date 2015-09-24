@@ -1,4 +1,4 @@
-EasyUpload.form.EasyUploadField = function(config) {
+FastUploadTV.form.FastUploadTVField = function(config) {
     config = config || {};
 
     //noinspection JSValidateTypes
@@ -12,7 +12,7 @@ EasyUpload.form.EasyUploadField = function(config) {
             ,failure:       {fn: this.onUploadFailure,scope:this}
         }
     })
-    EasyUpload.form.EasyUploadField.superclass.constructor.call(this,config);
+    FastUploadTV.form.FastUploadTVField.superclass.constructor.call(this,config);
 
 
     // Create separate formPanel for uploading files
@@ -37,7 +37,7 @@ EasyUpload.form.EasyUploadField = function(config) {
 
 
 };
-Ext.extend(EasyUpload.form.EasyUploadField,Ext.form.TextField,{
+Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
 
 
     createUploadForm: function(){
@@ -48,7 +48,7 @@ Ext.extend(EasyUpload.form.EasyUploadField,Ext.form.TextField,{
             ,renderTo: 'modx-content'
             ,isUpload: true
             ,hidden: true
-            ,url: MODx.config.assets_url+'components/tveasyupload/connector.php'
+            ,url: MODx.config.assets_url+'components/fastuploadtv/connector.php'
             ,baseParams: {
                 action: 'browser/file/upload'
                 ,res_id: this.res_id
@@ -139,7 +139,7 @@ Ext.extend(EasyUpload.form.EasyUploadField,Ext.form.TextField,{
             this.Preview = this.el.wrap().createChild({
                 tag: 'img'
                 ,width: 94
-                ,src: this.getValue() || MODx.config.assets_url+'components/tveasyupload/mgr/dud.gif'
+                ,src: this.getValue() || MODx.config.assets_url+'components/fastuploadtv/mgr/dud.gif'
                 ,style: {
                     display: 'block',
                     'margin-bottom': '.3em'
@@ -243,4 +243,4 @@ Ext.extend(EasyUpload.form.EasyUploadField,Ext.form.TextField,{
 
 
 });
-Ext.reg('EasyUploadTV',EasyUpload.form.EasyUploadField);
+Ext.reg('FastUploadTV',FastUploadTV.form.FastUploadTVField);

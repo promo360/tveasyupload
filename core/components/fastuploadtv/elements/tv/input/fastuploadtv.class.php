@@ -1,26 +1,26 @@
 <?php
-class EasyUploadInputRender extends modTemplateVarInputRender {
+class FastUploadTVInputRender extends modTemplateVarInputRender {
 
     public function getTemplate() {
-        return $this->modx->getOption('core_path').'components/tveasyupload/elements/tv/input/tpl/easyupload.tpl';
+        return $this->modx->getOption('core_path').'components/fastuploadtv/elements/tv/input/tpl/fastuploadtv.tpl';
     }
     
 public function process($value,array $params = array()) {
-        $js  = $this->modx->getOption('assets_url').'components/tveasyupload/mgr/js/';
+        $js  = $this->modx->getOption('assets_url').'components/fastuploadtv/mgr/js/';
         
         $this->modx->regClientStartupScript($js.'widgets/modx.form.filefield.js');
-        $this->modx->regClientStartupScript($js.'EasyUpload.js');
-        $this->modx->regClientStartupScript($js.'EasyUpload.form.EasyUploadField.js');
+        $this->modx->regClientStartupScript($js.'FastUploadTV.js');
+        $this->modx->regClientStartupScript($js.'FastUploadTV.form.FastUploadTVField.js');
 
         // Set assets path
-        $this->setPlaceholder('assets',$this->modx->getOption('assets_url').'components/tveasyupload/');
+        $this->setPlaceholder('assets',$this->modx->getOption('assets_url').'components/fastuploadtv/');
         
-        $this->modx->lexicon->load('tveasyupload');
+        $this->modx->lexicon->load('fastuploadtv');
         
         $this->setPlaceholder('res_id',$this->modx->resource->get('id'));
         $this->setPlaceholder('ms_id',$this->tv->source);
-        $this->setPlaceholder('jsonlex',json_encode($this->modx->lexicon->fetch('tveasyupload.',true)));
-        $this->setPlaceholder('lex',(object)$this->modx->lexicon->fetch('tveasyupload.',true));
+        $this->setPlaceholder('jsonlex',json_encode($this->modx->lexicon->fetch('fastuploadtv.',true)));
+        $this->setPlaceholder('lex',(object)$this->modx->lexicon->fetch('fastuploadtv.',true));
         
         // Resource Alias
         $resource_alias = ($this->modx->resource->get('alias')) ? $this->modx->resource->get('alias') : 'none';
@@ -58,7 +58,7 @@ public function process($value,array $params = array()) {
     
     
     public function getLexiconTopics(){
-        return array('tveasyupload:default');
+        return array('fastuploadtv:default');
     }
 }
-return 'EasyUploadInputRender';
+return 'FastUploadTVInputRender';

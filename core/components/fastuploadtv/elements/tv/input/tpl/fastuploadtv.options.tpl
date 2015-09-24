@@ -1,24 +1,24 @@
 <div id="tv-input-properties-form{$tv}"></div>
 {literal}
 <style>
-    .tveasyuploadInfo {
+    .fastuploadtvInfo {
         margin-top: 20px;
     }
-    .tveasyuploadInfo h4 {
+    .fastuploadtvInfo h4 {
         margin-top: 10px;
     }
-    .tveasyuploadInfo ul {
+    .fastuploadtvInfo ul {
         margin-left:20px;
         font-size:12px;
         margin-top:5px;
         color: #666;
     }
-    .tveasyuploadInfo ul li span {
+    .fastuploadtvInfo ul li span {
         font-family:mono;
         font-weight:bold;
     }
 </style>
-<div class="tveasyuploadInfo">
+<div class="fastuploadtvInfo">
     {/literal}{include file="$options_desc_tpl"}{literal}
 </div>
 
@@ -32,9 +32,9 @@ var params = {
 var oc = {'change':{fn:function(){Ext.getCmp('modx-panel-tv').markDirty();},scope:this}};
 
 {/literal}
-EasyUploadLex = {$tveulex};
+FastUploadTVLex = {$tveulex};
 function __(key){
-    return EasyUploadLex[key];
+    return FastUploadTVLex[key];
 };
 {literal}
 
@@ -47,7 +47,7 @@ MODx.load({
     ,labelAlign: 'top'
     ,items: [{
         xtype: 'textfield',
-        fieldLabel: __('tveasyupload.save_path'),
+        fieldLabel: __('fastuploadtv.save_path'),
         name: 'inopt_path',
         id: 'inopt_path{/literal}{$tv}{literal}',
         value: params['path'] || '',
@@ -56,11 +56,11 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_path{/literal}{$tv}{literal}'
-        ,html: __('tveasyupload.save_path_desc')
+        ,html: __('fastuploadtv.save_path_desc')
         ,cls: 'desc-under'
     },{
         xtype: 'textfield',
-        fieldLabel: __('tveasyupload.file_prefix'),
+        fieldLabel: __('fastuploadtv.file_prefix'),
         name: 'inopt_prefix',
         id: 'inopt_prefix{/literal}{$tv}{literal}',
         value: params['prefix'] || '',
@@ -69,11 +69,11 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_prefix{/literal}{$tv}{literal}'
-        ,html: __('tveasyupload.file_prefix_desc')
+        ,html: __('fastuploadtv.file_prefix_desc')
         ,cls: 'desc-under'
     },{
         xtype: 'textfield',
-        fieldLabel: __('tveasyupload.mime_types'),
+        fieldLabel: __('fastuploadtv.mime_types'),
         name: 'inopt_MIME',
         id: 'inopt_MIME{/literal}{$tv}{literal}',
         value: params['MIME'] || '',
@@ -82,11 +82,11 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_MIME{/literal}{$tv}{literal}'
-        ,html: __('tveasyupload.mime_types_desc')
+        ,html: __('fastuploadtv.mime_types_desc')
         ,cls: 'desc-under'
     },{
         xtype: 'modx-combo-boolean',
-        fieldLabel: __('tveasyupload.show_value'),
+        fieldLabel: __('fastuploadtv.show_value'),
         name: 'inopt_showValue',
         id: 'inopt_showValue{/literal}{$tv}{literal}',
         value: params['showValue'] || 0,
@@ -95,11 +95,11 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_MIME{/literal}{$tv}{literal}'
-        ,html: __('tveasyupload.show_value_desc')
+        ,html: __('fastuploadtv.show_value_desc')
         ,cls: 'desc-under'
     },{
         xtype: 'modx-combo-boolean',
-        fieldLabel: __('tveasyupload.show_preview'),
+        fieldLabel: __('fastuploadtv.show_preview'),
         name: 'inopt_showPreview',
         id: 'inopt_showPreview{/literal}{$tv}{literal}',
         value: params['showPreview'] || 0,
@@ -108,7 +108,7 @@ MODx.load({
     },{
         xtype: MODx.expandHelp ? 'label' : 'hidden'
         ,forId: 'inopt_MIME{/literal}{$tv}{literal}'
-        ,html: __('tveasyupload.show_preview_desc')
+        ,html: __('fastuploadtv.show_preview_desc')
         ,cls: 'desc-under'
     }]
     ,renderTo: 'tv-input-properties-form{/literal}{$tv}{literal}'

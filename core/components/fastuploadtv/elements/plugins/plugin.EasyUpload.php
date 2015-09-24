@@ -1,8 +1,8 @@
 <?php
-$corePath = $modx->getOption('core_path',null,MODX_CORE_PATH).'components/tveasyupload/';
-$assetsUrl = $modx->getOption('assets_url',null,MODX_ASSETS_URL).'components/tveasyupload/';
+$corePath = $modx->getOption('core_path',null,MODX_CORE_PATH).'components/fastuploadtv/';
+$assetsUrl = $modx->getOption('assets_url',null,MODX_ASSETS_URL).'components/fastuploadtv/';
 
-$modx->lexicon->load('tveasyupload:default');
+$modx->lexicon->load('fastuploadtv:default');
 
 switch ($modx->event->name) {
     case 'OnTVInputRenderList':
@@ -12,13 +12,13 @@ switch ($modx->event->name) {
         $modx->event->output($corePath.'elements/tv/input/options/');
         break;
     case 'OnDocFormPrerender':
-        $js  = $modx->getOption('assets_url').'components/tveasyupload/mgr/js/';
+        $js  = $modx->getOption('assets_url').'components/fastuploadtv/mgr/js/';
         $modx->regClientStartupScript($js.'widgets/modx.form.filefield.js');
-        $modx->regClientStartupScript($js.'EasyUpload.js');
-        $modx->regClientStartupScript($js.'EasyUpload.form.EasyUploadField.js');
+        $modx->regClientStartupScript($js.'FastUploadTV.js');
+        $modx->regClientStartupScript($js.'FastUploadTV.form.FastUploadTVField.js');
         break;
     case 'OnWebPageInit':
-        $mTypes = $modx->getOption('manipulatable_url_tv_output_types',null,'image,file').',easyupload';
+        $mTypes = $modx->getOption('manipulatable_url_tv_output_types',null,'image,file').',fastuploadtv';
         $modx->setOption('manipulatable_url_tv_output_types', $mTypes);
         break;
     case 'OnFileManagerUpload':

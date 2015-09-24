@@ -4,10 +4,10 @@
  *
  * @param string $path The target directory
  *
- * @package easyupload
+ * @package fastuploadtv
  * @subpackage processors.browser.file
  */
-class easyBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
+class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
 
 // Remove the need to pass it a path - generate path here instead
 //--------------------------------------------------------------------------
@@ -23,7 +23,7 @@ public function initialize() {
 //---------------------------------------------------------------------------
 public function getLanguageTopics() {
         $langs = parent::getLanguageTopics();
-        $langs[] = 'tveasyupload';
+        $langs[] = 'fastuploadtv';
         return $langs;
     }//
 
@@ -40,7 +40,7 @@ public function process() {
         // Check a file has been uploaded
         if(count($_FILES)<1){
         //    die(print_r($_REQUEST));
-            return $this->failure($this->modx->lexicon('tveasyupload.err_file_ns'));
+            return $this->failure($this->modx->lexicon('fastuploadtv.err_file_ns'));
         }
         
         // Initialize and check perms for this mediasource
@@ -52,13 +52,13 @@ public function process() {
  */       
         // Ensure we have been passed the TV's id
         if (!$this->getProperty('tv_id')){
-            return $this->failure($this->modx->lexicon('tveasyupload.error_tvid_ns'));
+            return $this->failure($this->modx->lexicon('fastuploadtv.error_tvid_ns'));
         };
         
         // Grab the TV object
         $TV = $this->modx->getObject('modTemplateVar',$this->getProperty('tv_id'));
         if(! $TV instanceof modTemplateVar){
-            return $this->failure($this->modx->lexicon('tveasyupload.error_tvid_invalid')."<br />\n[".$this->getProperty('tv_id')."]");
+            return $this->failure($this->modx->lexicon('fastuploadtv.error_tvid_invalid')."<br />\n[".$this->getProperty('tv_id')."]");
         };
         
         // Initialize and check perms for this mediasource
@@ -175,5 +175,5 @@ private function parsePlaceholders($str){
     }//
 
 
-};// end class easyBrowserFileUploadProcessor 
-return 'easyBrowserFileUploadProcessor';
+};// end class fastBrowserFileUploadProcessor 
+return 'fastBrowserFileUploadProcessor';

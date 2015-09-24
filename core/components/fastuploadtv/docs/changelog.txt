@@ -1,5 +1,5 @@
 --------------------
-Extra: EasyUpload
+Extra: FastUploadTV
 --------------------
 
 # Version 2.0.0

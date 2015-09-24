@@ -1,9 +1,9 @@
-var EasyUpload = function(config) {
+var FastUploadTV = function(config) {
     config = config || {};
-    EasyUpload.superclass.constructor.call(this,config);
+    FastUploadTV.superclass.constructor.call(this,config);
 };
-Ext.extend(EasyUpload,Ext.Component,{
+Ext.extend(FastUploadTV,Ext.Component,{
     page:{},window:{},grid:{},tree:{},panel:{},combo:{},config: {},form:{}
 });
-Ext.reg('EasyUpload',EasyUpload);
-EasyUpload = new EasyUpload();
+Ext.reg('FastUploadTV',FastUploadTV);
+FastUploadTV = new FastUploadTV();
