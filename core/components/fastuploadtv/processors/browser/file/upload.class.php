@@ -107,7 +107,7 @@ public function process() {
         // Generate the file's url
         $fName = array_shift($files); $fName = $fName['name'];
         //$url = $this->source->getObjectUrl($path.'/'.$fName);
-        $url = $path.'/'.$fName;
+        $url = $path.$fName;
         $url = str_replace('//','/',$url);
        
         return $this->success(stripslashes($url));
@@ -165,7 +165,7 @@ private function parsePlaceholders($str){
             '{tid}'     => $this->getProperty('tv_id'),     // TV ID
             '{uid}'     => $this->modx->user->get('id'),    // User ID
             '{rand}'    => substr(uniqid(), 0, 6),          // Random string
-            '{t}' => time()     // Timestamp
+            '{t}' => time(),    // Timestamp
             '{y}' => date('Y'), // Year
             '{m}' => date('m'), // Month
             '{d}' => date('d'), // Day
