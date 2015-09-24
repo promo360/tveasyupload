@@ -2,6 +2,8 @@
 #### For content editors who don't care where their files go, and developers who do
 A Template Resource Input Filter for MODx Revolution 2.2+
 
+It is fork from Alan Pich Simple File Upload TV.
+
 ------------------------------------
 
 The Fast Upload TV input provides the simplest possible file upload experience for the end user, 
@@ -9,11 +11,8 @@ offering single-button file selection & uploading without the use of the MODx fi
 set on the TV itself, so the content-editor doesn't have to worry about where to save to.
 
 ### Installation Instructions
-1. Install `Fast Upload TV` from the control panel
-2. Replace files `/core/components/fastuploadtv/`
-3. Replace files `/assets/components/fastuploadtv/`
-4. In the control panel tab `Elements` find plugins `FastUploadTV`
-5. Click the `System events` mark the events `OnFileManagerUpload`, `OnWebPageInit` and save
+Install this package through the Package Manager or download from the [MODx Extras Repository](http://modx.com/extras/package/fastuploadtv).
+Once installed, 'Fast Upload TV' will become an option in the TV Input Type selection list.
 
 
 ### Input Configuration Options

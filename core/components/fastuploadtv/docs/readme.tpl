@@ -5,15 +5,17 @@ Version: {$version}
 Build:   {$date}
 Commit:  {$commit}
 
-Author: Alan Pich <alan.pich@gmail.com>
+Author: Alan Pich <alan.pich@gmail.com>, Evgeniy Yudin (JINN) <promo360@yandex.ru>
 License: GNU GPLv2
 
 This project is hosted on github:
-https://github.com/alanpich/fastuploadtv/
+https://github.com/promo360/fastuploadtv
 
 The Fast Upload TV input provides the simplest possible file upload experience for the end user,
 offering single-button file selection & uploading without the use of the MODx file manager. File save paths are
 set on the TV itself, so the content-editor doesn't have to worry about where to save to.
+
+It is fork from Alan Pich Simple File Upload TV.
 
 ### Installation Instructions
 Install this package through the Package Manager or download from the [MODx Extras Repository](http://modx.com/extras/package/fastuploadtv).
