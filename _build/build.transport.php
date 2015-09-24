@@ -11,7 +11,7 @@
 
 
     // Register namespace for this extra -------------------------------------------------
-    $builder->registerNamespace(PKG_NAMESPACE,false,true,'{core_path}components/'.PKG_NAMESPACE.'/');
+    $builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
 
 
 
