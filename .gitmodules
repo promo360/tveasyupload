@@ -1,3 +1,3 @@
-[submodule "assets/components/tveasyupload/mgr/js/widgets"]
-	path = assets/components/tveasyupload/mgr/js/widgets
+[submodule "assets/components/FastUploadTV/mgr/js/widgets"]
+	path = assets/components/FastUploadTV/mgr/js/widgets
 	url = git@github.com:alanpich/modx.form.filefield.git

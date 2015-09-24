@@ -1,23 +1,23 @@
-#Simple File Upload 
+#Fast Upload TV 
 #### For content editors who don't care where their files go, and developers who do
 A Template Resource Input Filter for MODx Revolution 2.2+
 
 ------------------------------------
 
-The Simple File Upload TV input provides the simplest possible file upload experience for the end user, 
+The Fast Upload TV input provides the simplest possible file upload experience for the end user, 
 offering single-button file selection & uploading without the use of the MODx file manager. File save paths are 
 set on the TV itself, so the content-editor doesn't have to worry about where to save to.
 
 ### Installation Instructions
-1. Install `Simple File Upload TV` from the control panel
-2. Replace files `/core/components/tveasyupload/`
-3. Replace files `/assets/components/tveasyupload/`
-4. In the control panel tab `Elements` find plugins `EasyUpload`
+1. Install `Fast Upload TV` from the control panel
+2. Replace files `/core/components/FastUploadTV/`
+3. Replace files `/assets/components/FastUploadTV/`
+4. In the control panel tab `Elements` find plugins `FastUploadTV`
 5. Click the `System events` mark the events `OnFileManagerUpload`, `OnWebPageInit` and save
 
 
 ### Input Configuration Options
-While hiding many of these features from the Resource editor, Simple File Upload TVs are very customisable! They 
+While hiding many of these features from the Resource editor, Fast Upload TVs are very customisable! They 
 work with any stream-based (filesystem) mediasource, can be saved to a custom path within the source, and optionally 
 prefix a string to the filename in order to make maintainance and curation of uploaded files easier over time. 
 You can even restrict file upload types by specifying required MIME types!
