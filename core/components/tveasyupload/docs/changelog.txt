@@ -1,0 +1,16 @@
+--------------------
+Extra: EasyUpload
+--------------------
+
+# Version 2.0.0
+--------------------
+ :: Refactored to work with MIGX
+ :: Much cleaner codebase
+
+# Version 1.2.6
+--------------------
+ :: Complete rewrite into pure Ext component
+
+# Version 1.2.1
+--------------------
+ :: Fixed 'folder already exists' error on file upload
