@@ -2,15 +2,14 @@
 Extra: FastUploadTV
 --------------------
 
-# Version 2.0.0
---------------------
- :: Refactored to work with MIGX
- :: Much cleaner codebase
+# Version 1.0.0
+ :: Add Russian Language
+ :: Auto translit filenames
+ :: Change placeholder: {r} > {id}, {t} > {tid}, {u} > {uid}
+ :: New placeholder: {rand}, {t}, {h}, {i}, {s}, {pid}, {alias}, {palias}
+ :: The path is taken from the MediaSource
+ :: Bug fixes 
 
-# Version 1.2.6
+# Version 0.9.0
 --------------------
- :: Complete rewrite into pure Ext component
-
-# Version 1.2.1
---------------------
- :: Fixed 'folder already exists' error on file upload
+ :: Fork tveasyupload 2.0.0 beta (23 Feb 2013)
