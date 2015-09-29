@@ -22,7 +22,7 @@ switch ($modx->event->name) {
         $modx->setOption('manipulatable_url_tv_output_types', $mTypes);
         break;
     case 'OnFileManagerUpload':
-        $translit = (bool)$this->modx->getOption('fastuploadtv.translit', null, false);
+        $translit = (bool)$modx->getOption('fastuploadtv.translit', null, false);
         if ($translit) {
             $currentdoc = $modx->newObject('modResource');
             foreach($files as $file)
