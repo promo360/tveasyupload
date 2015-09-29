@@ -146,9 +146,11 @@ private function ensureSavePathExists($path){
 private function prepareFiles($prefix){
         $files = $_FILES;
         $doc = $this->modx->newObject('modResource');
+        $translit = (bool)$this->modx->getOption('fastuploadtv.translit', null, false);
         foreach($files as &$file){
             $pathInfo = pathinfo($file['name']);
-            $file['name'] = $this->parsePlaceholders($prefix.$doc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension']);
+            $filename = ($translit) ? $doc->cleanAlias($pathInfo['filename']) : $pathInfo['filename'];
+            $file['name'] = $this->parsePlaceholders($prefix.$filename.'.'. $pathInfo['extension']);
         };
         return $files;
     }//
