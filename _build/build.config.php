@@ -3,7 +3,7 @@
     define('PKG_NAME', 'FastUploadTV');
     define('PKG_NAME_LOWER',str_replace(' ','',strtolower(PKG_NAME)));
     define('PKG_VERSION','1.0.0');
-    define('PKG_RELEASE','beta');
+    define('PKG_RELEASE','beta2');
 
 
 
