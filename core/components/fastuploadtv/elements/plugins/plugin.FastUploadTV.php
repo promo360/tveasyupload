@@ -22,15 +22,18 @@ switch ($modx->event->name) {
         $modx->setOption('manipulatable_url_tv_output_types', $mTypes);
         break;
     case 'OnFileManagerUpload':
-        $currentdoc = $modx->newObject('modResource');
-        foreach($files as $file)
-        {
-            if($file['error'] == 0)
+        $translit = (bool)$this->modx->getOption('fastuploadtv.translit', null, false);
+        if ($translit) {
+            $currentdoc = $modx->newObject('modResource');
+            foreach($files as $file)
             {
-              $pathInfo = pathinfo($file['name']);
-              $oldPath = $directory.$file['name'];
-              $newPath = $currentdoc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension'];
-              $source->renameObject($oldPath, $newPath);
+                if($file['error'] == 0)
+                {
+                  $pathInfo = pathinfo($file['name']);
+                  $oldPath = $directory.$file['name'];
+                  $newPath = $currentdoc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension'];
+                  $source->renameObject($oldPath, $newPath);
+                }
             }
         }
         break;
