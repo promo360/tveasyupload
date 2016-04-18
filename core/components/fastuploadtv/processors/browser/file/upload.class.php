@@ -150,6 +150,7 @@ private function prepareFiles($prefix){
         foreach($files as &$file){
             $pathInfo = pathinfo($file['name']);
             $filename = ($translit) ? $doc->cleanAlias($pathInfo['filename']) : $pathInfo['filename'];
+            $filename=str_replace(array(')','('),array('',''),$filename);
             $file['name'] = $this->parsePlaceholders($prefix.$filename.'.'. $pathInfo['extension']);
         };
         return $files;
