@@ -198,7 +198,7 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
         } else {
             console.log('show',url);
             console.log(this.Preview)
-            var phpThumbUrl = '../connectors/system/phpthumb.php?w=94&zc=0&src='+url+'&wctx=web&source='+this.ms_id
+            var phpThumbUrl = MODx.config.connectors_url+'system/phpthumb.php?w=94&zc=0&src='+url+'&wctx=web&source='+this.ms_id
             this.Preview.dom.src = phpThumbUrl;
             this.Preview.setDisplayed('block');
         }
