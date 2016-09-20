@@ -3,6 +3,7 @@
 $s = array(
     'translit' => false,
     'check_resid' => true,
+    'preview_width' => '94',
 );
 
 $settings = array();

@@ -127,7 +127,7 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
         if(this.showPreview){
             this.Preview = this.el.wrap().createChild({
                 tag: 'img'
-                ,width: 94
+                ,width: MODx.config['fastuploadtv.preview_width']
                 ,src: this.getValue() || MODx.config.assets_url+'components/fastuploadtv/mgr/dud.gif'
                 ,style: {
                     display: 'block',
@@ -180,12 +180,16 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
     /**
      * Show or Hide the preview image
      */
-    ,showHidePreview: function(url){
+    ,showHidePreview: function(url, cache=true){
         if(!this.showPreview){return}
         if(url.trim().length < 1){
             this.Preview.setDisplayed('none');
         } else {
-            var phpThumbUrl = MODx.config.connectors_url+'system/phpthumb.php?w=94&zc=0&src='+url+'&wctx=web&source='+this.ms_id
+            var cache_str = '';
+            if (!cache) {
+                cache_str =  '&cache_reset=' + Math.random();
+            }
+            var phpThumbUrl = MODx.config.connectors_url+'system/phpthumb.php?w='+MODx.config['fastuploadtv.preview_width']+'&zc=0&src='+url+'&wctx=web&source='+this.ms_id+cache_str
             this.Preview.dom.src = phpThumbUrl;
             this.Preview.setDisplayed('block');
         }
@@ -220,6 +224,7 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
         this.value = o.result.message;
         this.setValue(o.result.message)
         this.updateDisplay(o.result.message);
+        this.showHidePreview(this.value, false);
         MODx.fireResourceFormChange()
     }
 
