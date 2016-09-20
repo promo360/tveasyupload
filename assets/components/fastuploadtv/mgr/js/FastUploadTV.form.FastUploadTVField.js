@@ -101,34 +101,22 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
                 tag: 'label'
                 ,size: 13
                 ,html: this.value
-                ,cls: 'modx-version'
-                ,float: 'left'
                 ,style: {
-                    margin: '.2em auto .5em'
-            //        ,float: 'left'
+                    display: 'block'
+                    ,margin: '6px auto 9px'
                 }
             });
         }
 
         // Allow user to clear the field with a button
-        this.ClearButton = this.Button.el.wrap().createChild({
-            tag: 'img'
-            ,size: 13
-            ,src: MODx.config.manager_url+'templates/default/images/style/delete.png'
-            ,height: 12
-            ,alt: this.clearText
-            ,title: this.clearText
-            ,hidden: true
+        this.ClearButton = MODx.load({
+             xtype: 'button'
+            ,text: this.clearText
+            ,float: 'left'
             ,style: {
-                display: 'inline'
-                ,position: 'relative'
-                ,'bottom': '10px'
-                ,'margin-left':'3.1em'
-                ,'margin-top':'0.1em'
-                ,cursor: 'pointer'
-                ,float: 'left'
-                ,position: 'absolute'
+                'margin-left': '10px'
             }
+            ,renderTo: this.Button.el.wrap()
         });
         this.ClearButton.on('click',this.onClearButtonClick,this);
         this.showHideClearButton(this.value);
@@ -142,7 +130,7 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
                 ,src: this.getValue() || MODx.config.assets_url+'components/fastuploadtv/mgr/dud.gif'
                 ,style: {
                     display: 'block',
-                    'margin-bottom': '.3em'
+                    'margin-bottom': '10px'
                 }
             })
         };
