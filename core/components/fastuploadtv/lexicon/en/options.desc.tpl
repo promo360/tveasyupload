@@ -5,8 +5,8 @@
     <ul>
         <li><span>{id}</span>     - Resource ID</li>
         <li><span>{pid}</span>    - Resource Parent ID</li>
-        <li><span>{alias}</span>  - Resource Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)</li>
-        <li><span>{palias}</span> - Resource Parent Alias (IMPORTANT! Alias can not contain spetssivolov prohibited OS)</li>
+        <li><span>{alias}</span>  - Resource Alias</li>
+        <li><span>{palias}</span> - Resource Parent Alias</li>
         <li><span>{tid}</span>    - TV ID</li>
         <li><span>{uid}</span>    - User ID</li>
         <li><span>{rand}</span>   - Random string</li>

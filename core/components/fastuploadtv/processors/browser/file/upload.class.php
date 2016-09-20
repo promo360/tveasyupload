@@ -82,8 +82,8 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
         
         // Generate the file's url
         $fName = array_shift($files);
-        $url = $path.$fName['name'];
-        $url = str_replace('//','/',$url);
+        $url = (empty($path)) ? $fName['name'] : $path.'/'.$fName['name'];
+        $url = preg_replace('/\/{2,}/','/',$url); // remove double symbol "/"
        
         return $this->success(stripslashes($url));
             /* stripslashes(json_encode( (object)array('success' => true, 'msg' => $url))); */
@@ -113,6 +113,9 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
         
         $fastuploadtv_translit = (bool)$this->modx->getOption('fastuploadtv.translit', null, false);
         
+        $fat = $this->modx->getOption('friendly_alias_translit');
+        $friendly_alias_translit = (empty($fat) || $fat == 'none') ? false : true;
+        
         foreach ($files as &$file) {
             $pathInfo = pathinfo($file['name']);
             $ext = $pathInfo['extension'];
@@ -122,12 +125,16 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
             
             if ($fastuploadtv_translit) {
                 $filename = modResource::filterPathSegment($this->modx, $filename); // cleanAlias (translate) 
-                $filename = str_replace(array(')','('),array('',''),$filename);
+                if ($friendly_alias_translit) {
+                    $filename = preg_replace('/[^A-Za-z0-9_-]/', '', $filename); // restrict segment to alphanumeric characters only
+                }
+                $filename = preg_replace('/-{2,}/','-',$filename); // remove double symbol "-"
+                $filename = trim($filename, '-'); // remove first symbol "-"
             
                 $ext = strtolower($ext);
             }
             
-            $file['name'] = $filename . '.'. $ext;
+            $file['name'] = $filename . '.' . $ext;
         }
         return $files;
     }

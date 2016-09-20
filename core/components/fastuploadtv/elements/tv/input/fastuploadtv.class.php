@@ -23,7 +23,7 @@ class FastUploadTVInputRender extends modTemplateVarInputRender {
         $this->setPlaceholder('lex',(object)$this->modx->lexicon->fetch('fastuploadtv.',true));
         
         // Resource Alias
-        $resource_alias = ($this->modx->resource->get('alias')) ? $this->modx->resource->get('alias') : 'none';
+        $resource_alias = ($this->modx->resource->get('alias')) ? $this->modx->resource->get('alias') : '';
         $this->setPlaceholder('res_alias', $resource_alias);
         
         // Parent ID
@@ -32,7 +32,7 @@ class FastUploadTVInputRender extends modTemplateVarInputRender {
         $this->setPlaceholder('p_id', $parent_id);
         
         // Parent Alias
-        $parent_alias = ($parent) ? $parent->get('alias') : 'none';
+        $parent_alias = ($parent) ? $parent->get('alias') : '';
         $this->setPlaceholder('p_alias', $parent_alias);
 
         // Longwinded method to get tv_id to work with MIGX

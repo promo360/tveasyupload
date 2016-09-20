@@ -22,17 +22,29 @@ switch ($modx->event->name) {
         $modx->setOption('manipulatable_url_tv_output_types', $mTypes);
         break;
     case 'OnFileManagerUpload':
-        $translit = (bool)$modx->getOption('fastuploadtv.translit', null, false);
-        if ($translit) {
-            $currentdoc = $modx->newObject('modResource');
+        if ((bool)$modx->getOption('fastuploadtv.translit', null, false))
+        {
+            $fat = $modx->getOption('friendly_alias_translit');
+            $friendly_alias_translit = (empty($fat) || $fat == 'none') ? false : true;
+            
             foreach($files as $file)
             {
                 if($file['error'] == 0)
                 {
-                  $pathInfo = pathinfo($file['name']);
-                  $oldPath = $directory.$file['name'];
-                  $newPath = $currentdoc->cleanAlias($pathInfo['filename']).'.'. $pathInfo['extension'];
-                  $source->renameObject($oldPath, $newPath);
+                    $pathInfo = pathinfo($file['name']);
+                    $oldPath = $directory.$file['name'];
+                    
+                    $filename = modResource::filterPathSegment($modx, $pathInfo['filename']); // cleanAlias (translate)
+                    if ($friendly_alias_translit)
+                    {
+                        $filename = preg_replace('/[^A-Za-z0-9_-]/', '', $filename); // restrict segment to alphanumeric characters only
+                    }
+                    $filename = preg_replace('/-{2,}/','-',$filename); // remove double symbol "-"
+                    $filename = trim($filename, '-'); // remove first symbol "-"
+                    
+                    $newPath = $filename . '.' . strtolower($pathInfo['extension']);
+                    
+                    $source->renameObject($oldPath, $newPath);
                 }
             }
         }
