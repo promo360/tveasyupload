@@ -167,7 +167,7 @@ private function parsePlaceholders($str){
             '{palias}'  => $this->getProperty('p_alias'),   // Resource Parent Alias
             '{tid}'     => $this->getProperty('tv_id'),     // TV ID
             '{uid}'     => $this->modx->user->get('id'),    // User ID
-            '{rand}'    => substr(uniqid(), 0, 6),          // Random string
+            '{rand}'    => substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyz', ceil(6/strlen($x)) )),1,6), // Random string
             '{t}' => time(),    // Timestamp
             '{y}' => date('Y'), // Year
             '{m}' => date('m'), // Month
