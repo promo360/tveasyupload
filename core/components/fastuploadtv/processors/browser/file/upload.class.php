@@ -55,9 +55,6 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
         $opts = unserialize($TV->input_properties);
         $path = $this->preparePath($opts['path']);
         
-        // Ensure save path exists (and create it if not)
-        $this->ensureSavePathExists($path);
-        
         // Prepare file names (prevent duplicate overwrites)
         $prefix = (empty($opts['prefix'])) ? '' : $opts['prefix'];
         $files = $this->prepareFiles($prefix);
@@ -106,13 +103,6 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
         // Parse path string and return it
         $path = $this->parsePlaceholders($pathStr);
         return $path;
-    }
-    
-    /**
-     * Ensure save path exists (and create it if not)
-     */
-    private function ensureSavePathExists($path) {
-        $this->source->createContainer($path,'');
     }
     
     /**
