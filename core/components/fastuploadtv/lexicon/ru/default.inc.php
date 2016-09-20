@@ -28,3 +28,4 @@ $_lang['fastuploadtv.error_tvid_ns'] = 'Ошибка: modTemplateVar ID не о�
 $_lang['fastuploadtv.error_tvid_invalid'] = 'Ошибка: неверное условие modTemplateVar';
 
 $_lang['fastuploadtv.err_file_ns'] = 'Ошибка: файл не был загружен';
+$_lang['fastuploadtv.err_save_resource'] = 'Перед добавлением новых элементов, вам необходимо сохранить этот ресурс!';

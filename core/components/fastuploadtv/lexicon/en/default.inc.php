@@ -28,3 +28,4 @@ $_lang['fastuploadtv.error_tvid_ns'] = 'SYSTEM ERROR: modTemplateVar ID not prov
 $_lang['fastuploadtv.error_tvid_invalid'] = 'SYSTEM ERROR: invalid modTemplateVar provided';
 
 $_lang['fastuploadtv.err_file_ns'] = 'Error: No File was uploaded';
+$_lang['fastuploadtv.err_save_resource'] = 'Before adding new items, you need to save this resource!';

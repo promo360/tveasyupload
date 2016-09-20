@@ -197,6 +197,12 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
      * Handler for 'Select file...' button click
      */
     ,onButtonClick: function(){
+        if (MODx.config['fastuploadtv.check_resid'] == '1') {
+            if (this.res_id == 0){
+                alert(this.lex['err_save_resource']);
+                return;
+            }
+        }
         this.UploadField.click()
     }
 

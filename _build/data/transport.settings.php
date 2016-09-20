@@ -2,6 +2,7 @@
 
 $s = array(
     'translit' => false,
+    'check_resid' => true,
 );
 
 $settings = array();

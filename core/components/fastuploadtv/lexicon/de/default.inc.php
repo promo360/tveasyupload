@@ -28,3 +28,4 @@ $_lang['fastuploadtv.error_tvid_ns'] = 'SYSTEM FEHLER: modTemplateVar ID fehlt';
 $_lang['fastuploadtv.error_tvid_invalid'] = 'SYSTEM FEHLER: falsche modTemplateVar übergeben';
 
 $_lang['fastuploadtv.err_file_ns'] = 'Fehler: Es wurde keine Datei hochgeladen';
+$_lang['fastuploadtv.err_save_resource'] = 'Bevor neue Datensätze erstellt werden können, müssen Sie diese Ressource speichern.';
