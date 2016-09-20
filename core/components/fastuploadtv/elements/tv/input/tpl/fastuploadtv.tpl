@@ -1,4 +1,4 @@
-<div id="fastuploadtv{$tv->id}" style="width:400px"></div>
+<div id="fastuploadtv{$tv->id}" style="width:100%"></div>
 <script type="text/javascript">
     myTV{$tv->id} = MODx.load{literal}({
     {/literal}
@@ -18,9 +18,10 @@
         acceptedMIMEtypes: {$MIME_TYPES},
         showValue: {$showValue},
         showPreview: {$showPreview},
+        prefixFilename: {$prefixFilename},
         value: '{$tv->value}',
         lex: {$jsonlex}
     {literal}
     });
-{/literal}
+    {/literal}
 </script>

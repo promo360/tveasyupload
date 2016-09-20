@@ -127,11 +127,17 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
             $pathInfo = pathinfo($file['name']);
             $ext = $pathInfo['extension'];
             
-            $filename = ($fastuploadtv_translit) ? modResource::filterPathSegment($this->modx, $pathInfo['filename']) : $pathInfo['filename'];
+            $filename = ($this->getProperty('prefixFilename') == 'true') ? $prefix : $prefix.$pathInfo['filename'];
+            $filename = $this->parsePlaceholders($filename);
             
-            $filename = str_replace(array(')','('),array('',''),$filename);
+            if ($fastuploadtv_translit) {
+                $filename = modResource::filterPathSegment($this->modx, $filename); // cleanAlias (translate) 
+                $filename = str_replace(array(')','('),array('',''),$filename);
             
-            $file['name'] = $this->parsePlaceholders($prefix.$filename.'.'. $ext);
+                $ext = strtolower($ext);
+            }
+            
+            $file['name'] = $filename . '.'. $ext;
         }
         return $files;
     }

@@ -110,6 +110,14 @@ MODx.load({
         ,forId: 'inopt_MIME{/literal}{$tv}{literal}'
         ,html: __('fastuploadtv.show_preview_desc')
         ,cls: 'desc-under'
+    },{
+        xtype: 'modx-combo-boolean',
+        fieldLabel: __('fastuploadtv.prefix_filename'),
+        name: 'inopt_prefixFilename',
+        id: 'inopt_prefixFilename{/literal}{$tv}{literal}',
+        value: params['prefixFilename'] || 0,
+        anchors: '98%',
+        listeners: oc
     }]
     ,renderTo: 'tv-input-properties-form{/literal}{$tv}{literal}'
 });

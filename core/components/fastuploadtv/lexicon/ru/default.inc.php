@@ -16,6 +16,7 @@ $_lang['fastuploadtv.show_value'] = 'Показывать значение TV';
 $_lang['fastuploadtv.show_value_desc'] = 'Отображать путь к файлу';
 $_lang['fastuploadtv.show_preview'] = 'Показать изображение';
 $_lang['fastuploadtv.show_preview_desc'] = 'Отображать миниатюру изображений';
+$_lang['fastuploadtv.prefix_filename'] = 'Использовать префикс как имя файла';
 
 // TV Render 
 $_lang['fastuploadtv.upload_file'] = 'Загрузить файл';

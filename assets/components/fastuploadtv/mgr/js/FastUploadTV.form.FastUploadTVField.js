@@ -57,6 +57,7 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
                 ,p_alias: this.p_alias
                 ,tv_id: this.tv_id
                 ,ms_id: this.ms_id
+                ,prefixFilename: this.prefixFilename
             }
             ,TV: this
             ,listeners: {
@@ -184,8 +185,6 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
         if(url.trim().length < 1){
             this.Preview.setDisplayed('none');
         } else {
-            console.log('show',url);
-            console.log(this.Preview)
             var phpThumbUrl = MODx.config.connectors_url+'system/phpthumb.php?w=94&zc=0&src='+url+'&wctx=web&source='+this.ms_id
             this.Preview.dom.src = phpThumbUrl;
             this.Preview.setDisplayed('block');

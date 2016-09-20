@@ -16,6 +16,7 @@ $_lang['fastuploadtv.show_value'] = 'Zeige Wert der TV';
 $_lang['fastuploadtv.show_value_desc'] = 'Zeige die URL der Datei in der TV.';
 $_lang['fastuploadtv.show_preview'] = 'Zeige Vorschau';
 $_lang['fastuploadtv.show_preview_desc'] = 'Zeigt ein Vorschaubild einer Bilddatei.';
+$_lang['fastuploadtv.prefix_filename'] = 'Verwenden Sie Präfix als Dateinamen';
 
 // TV Render 
 $_lang['fastuploadtv.upload_file'] = 'Datei hochladen …';
@@ -27,5 +28,3 @@ $_lang['fastuploadtv.error_tvid_ns'] = 'SYSTEM FEHLER: modTemplateVar ID fehlt';
 $_lang['fastuploadtv.error_tvid_invalid'] = 'SYSTEM FEHLER: falsche modTemplateVar übergeben';
 
 $_lang['fastuploadtv.err_file_ns'] = 'Fehler: Es wurde keine Datei hochgeladen';
-
-

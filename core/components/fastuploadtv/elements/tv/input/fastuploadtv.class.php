@@ -1,11 +1,11 @@
 <?php
 class FastUploadTVInputRender extends modTemplateVarInputRender {
-
+    
     public function getTemplate() {
         return $this->modx->getOption('core_path').'components/fastuploadtv/elements/tv/input/tpl/fastuploadtv.tpl';
     }
     
-public function process($value,array $params = array()) {
+    public function process($value,array $params = array()) {
         $js  = $this->modx->getOption('assets_url').'components/fastuploadtv/mgr/js/';
         
         $this->modx->regClientStartupScript($js.'widgets/modx.form.filefield.js');
@@ -45,6 +45,7 @@ public function process($value,array $params = array()) {
         $opts = unserialize($rootTv->input_properties);
         $this->setPlaceholder('showValue', ($opts['showValue']==$this->modx->lexicon('yes') ? 'true' : 'false'));
         $this->setPlaceholder('showPreview', ($opts['showPreview']==$this->modx->lexicon('yes') ? 'true' : 'false'));
+        $this->setPlaceholder('prefixFilename', ($opts['prefixFilename']==$this->modx->lexicon('yes') ? 'true' : 'false'));
 
         $tv = $this->tv;
         
