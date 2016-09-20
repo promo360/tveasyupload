@@ -158,7 +158,7 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
             '{h}' => date('H'), // Hour
             '{i}' => date('i'), // Minute
             '{s}' => date('s'), // Second
-        )
+        );
         return str_replace(array_keys($bits), $bits, $str);
     }
 }

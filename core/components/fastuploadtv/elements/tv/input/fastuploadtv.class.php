@@ -55,8 +55,7 @@ class FastUploadTVInputRender extends modTemplateVarInputRender {
             $MIME = '';
         };
         $this->setPlaceholder('MIME_TYPES',json_encode($MIME));
-    }//
-    
+    }
     
     public function getLexiconTopics(){
         return array('fastuploadtv:default');
