@@ -1,9 +1,17 @@
 --------------------
 Extra: FastUploadTV
 --------------------
+# Version 1.0.0-pl
+ :: Fixed placeholder {rand}
+ :: Event OnWebPageInit changed to OnModxInit
+ :: Refactoring code
+ :: New button "Clean value"
+ :: Added option: prefix_filename
+ :: Added settings: check_resid, preview_width_max, preview_height_max, random_lenght
+ :: Improved placeholders {alias} and {palias}
 
-# Version 1.0.0
- :: Add Russian Language
+# Version 1.0.0-beta
+ :: Added Russian Language
  :: Auto translit filenames
  :: Change placeholder: {r} > {id}, {t} > {tid}, {u} > {uid}
  :: New placeholder: {rand}, {t}, {h}, {i}, {s}, {pid}, {alias}, {palias}
