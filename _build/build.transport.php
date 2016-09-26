@@ -7,7 +7,7 @@
     $modx = Tools::loadModxInstance();
 
     $builder = new modPackageBuilder($modx);
-    $builder->createPackage(PKG_NAME,PKG_VERSION,PKG_RELEASE);
+    $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
 
 
     // Register namespace for this extra -------------------------------------------------
@@ -18,7 +18,7 @@
     // Create the plugin object ----------------------------------------------------------
     $plugin= $modx->newObject('modPlugin');
     $plugin->set('id',1);
-    $plugin->set('name', 'FastUploadTV');
+    $plugin->set('name', PKG_NAME);
     $plugin->set('description', PKG_NAME.' '.PKG_VERSION.'-'.PKG_RELEASE.' plugin for MODx Revolution');
     $plugin->set('plugincode', file_get_contents($sources['source_core'] . '/elements/plugins/plugin.FastUploadTV.php'));
     $plugin->set('category', 0);
