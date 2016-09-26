@@ -19,12 +19,12 @@ foreach ($s as $key => $value) {
     if (count($parts) == 1) { $area = 'Default'; }
     else { $area = $parts[0]; }
     
-    $settings['fastuploadtv.'.$key] = $modx->newObject('modSystemSetting');
-    $settings['fastuploadtv.'.$key]->set('key', 'fastuploadtv.'.$key);
-    $settings['fastuploadtv.'.$key]->fromArray(array(
+    $settings[PKG_NAME_LOWER.'.'.$key] = $modx->newObject('modSystemSetting');
+    $settings[PKG_NAME_LOWER.'.'.$key]->set('key', PKG_NAME_LOWER.'.'.$key);
+    $settings[PKG_NAME_LOWER.'.'.$key]->fromArray(array(
         'value' => $value,
         'xtype' => $type,
-        'namespace' => 'fastuploadtv',
+        'namespace' => PKG_NAME_LOWER,
         'area' => $area
     ));
 }
