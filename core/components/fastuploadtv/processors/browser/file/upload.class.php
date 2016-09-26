@@ -55,6 +55,9 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
         $opts = unserialize($TV->input_properties);
         $path = $this->preparePath($opts['path']);
         
+        // Ensure save path exists (and create it if not)
+        $this->source->createContainer($path,'');
+        
         // Prepare file names (prevent duplicate overwrites)
         $prefix = (empty($opts['prefix'])) ? '' : $opts['prefix'];
         $files = $this->prepareFiles($prefix);
