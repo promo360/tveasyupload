@@ -29,3 +29,12 @@ $_lang['fastuploadtv.error_tvid_invalid'] = 'SYSTEM ERROR: invalid modTemplateVa
 
 $_lang['fastuploadtv.err_file_ns'] = 'Error: No File was uploaded';
 $_lang['fastuploadtv.err_save_resource'] = 'Before adding new items, you need to save this resource!';
+
+// Settings
+$_lang['setting_fastuploadtv.translit'] = 'Translit';
+$_lang['setting_fastuploadtv.translit_desc'] = 'It is necessary to addition "translit"';
+$_lang['setting_fastuploadtv.check_resid'] = 'Upload only when editing';
+$_lang['setting_fastuploadtv.check_resid_desc'] = 'Recommended!';
+$_lang['setting_fastuploadtv.preview_width_max'] = 'Max width of the thumbnail';
+$_lang['setting_fastuploadtv.preview_height_max'] = 'Max height of the thumbnails';
+$_lang['setting_fastuploadtv.random_lenght'] = 'The length of the placeholder {rand}';

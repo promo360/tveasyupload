@@ -29,3 +29,14 @@ $_lang['fastuploadtv.error_tvid_invalid'] = 'Ошибка: неверное ус
 
 $_lang['fastuploadtv.err_file_ns'] = 'Ошибка: файл не был загружен';
 $_lang['fastuploadtv.err_save_resource'] = 'Перед добавлением новых элементов, вам необходимо сохранить этот ресурс!';
+
+// Settings
+$_lang['setting_fastuploadtv.translit'] = 'Транслитерация файлов';
+$_lang['setting_fastuploadtv.translit_desc'] = 'При включенной настройке, имена всех загружаемых файлов будут написаны транслитом. Настройка работает только при установленном дополнении "translit"';
+$_lang['setting_fastuploadtv.check_resid'] = 'Загружать только при редактировании';
+$_lang['setting_fastuploadtv.check_resid_desc'] = 'Пока ресурс не будет сохранен, файл не получится загрузить. Рекомендуется оставить включенным эту настройку. Иначе могут возникнуть проблемы при использовании плейсхолдеров {alias} и {palias} - у несохранных ресурсов они будут возвращать пустые значения.';
+$_lang['setting_fastuploadtv.preview_width_max'] = 'Ширина миниатюры';
+$_lang['setting_fastuploadtv.preview_width_max_desc'] = 'Максимальная ширина миниатюры (в админ-панели)';
+$_lang['setting_fastuploadtv.preview_height_max'] = 'Высота миниатюры';
+$_lang['setting_fastuploadtv.preview_height_max_desc'] = 'Максмальная высота миниатюры (в админ-панели)';
+$_lang['setting_fastuploadtv.random_lenght'] = 'Длина плейсхолдера {rand}';
