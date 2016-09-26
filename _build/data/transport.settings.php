@@ -3,7 +3,8 @@
 $s = array(
     'translit' => false,
     'check_resid' => true,
-    'preview_width' => '94',
+    'preview_width_max' => '150',
+    'preview_height_max' => '100',
 );
 
 $settings = array();
