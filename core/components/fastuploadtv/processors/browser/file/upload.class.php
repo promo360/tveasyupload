@@ -143,6 +143,7 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
      * Parse placeholders in input fields
      */
     private function parsePlaceholders($str) {
+        $random_lenght = (int)$this->modx->getOption('fastuploadtv.random_lenght', null, 6, true);
         $bits = array(
             '{id}'      => $this->getProperty('res_id'),    // Resource ID
             '{pid}'     => $this->getProperty('p_id'),      // Resource Parent ID
@@ -150,7 +151,7 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
             '{palias}'  => $this->getProperty('p_alias'),   // Resource Parent Alias
             '{tid}'     => $this->getProperty('tv_id'),     // TV ID
             '{uid}'     => $this->modx->user->get('id'),    // User ID
-            '{rand}'    => substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyz', ceil(6/strlen($x)) )),1,6), // Random string
+            '{rand}'    => substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyz', ceil($random_lenght/strlen($x)) )),1,$random_lenght), // Random string
             '{t}' => time(),    // Timestamp
             '{y}' => date('Y'), // Year
             '{m}' => date('m'), // Month
