@@ -17,7 +17,7 @@ switch ($modx->event->name) {
         $modx->regClientStartupScript($js.'FastUploadTV.js');
         $modx->regClientStartupScript($js.'FastUploadTV.form.FastUploadTVField.js');
         break;
-    case 'OnMODXInit':
+    case 'OnWebPageInit':
         $mTypes = $modx->getOption('manipulatable_url_tv_output_types',null,'image,file').',fastuploadtv';
         $modx->setOption('manipulatable_url_tv_output_types', $mTypes);
         break;
