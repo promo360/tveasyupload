@@ -44,7 +44,9 @@ switch ($modx->event->name) {
                     
                     $newPath = $filename . '.' . strtolower($pathInfo['extension']);
                     
-                    $source->renameObject($oldPath, $newPath);
+                    if ($newPath !== $file['name']) {
+                        $source->renameObject($oldPath, $newPath);
+                    }
                 }
             }
         }
