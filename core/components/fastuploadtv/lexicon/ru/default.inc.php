@@ -40,3 +40,4 @@ $_lang['setting_fastuploadtv.preview_width_max_desc'] = 'Максимальна�
 $_lang['setting_fastuploadtv.preview_height_max'] = 'Высота миниатюры';
 $_lang['setting_fastuploadtv.preview_height_max_desc'] = 'Максмальная высота миниатюры (в админ-панели)';
 $_lang['setting_fastuploadtv.random_lenght'] = 'Длина плейсхолдера {rand}';
+$_lang['setting_fastuploadtv.remove_file'] = 'Удалять файл физически';
