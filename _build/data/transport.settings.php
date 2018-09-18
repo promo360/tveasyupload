@@ -5,7 +5,8 @@ $s = array(
     'check_resid' => true,
     'preview_width_max' => 150,
     'preview_height_max' => 100,
-    'random_lenght' => 6
+    'random_lenght' => 6,
+    'remove_file' => false
 );
 
 $settings = array();

@@ -38,3 +38,4 @@ $_lang['setting_fastuploadtv.check_resid_desc'] = 'Recommended!';
 $_lang['setting_fastuploadtv.preview_width_max'] = 'Max width of the thumbnail';
 $_lang['setting_fastuploadtv.preview_height_max'] = 'Max height of the thumbnails';
 $_lang['setting_fastuploadtv.random_lenght'] = 'The length of the placeholder {rand}';
+$_lang['setting_fastuploadtv.remove_file'] = 'Hard remove file';
