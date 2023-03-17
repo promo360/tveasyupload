@@ -10,7 +10,7 @@ $evs = array(
     'OnTVInputPropertiesList',
     'OnDocFormPrerender',
     'OnFileManagerUpload',
-    'OnMODXInit'
+    'OnWebPageInit'
 );
 
 foreach ($evs as $ev) {

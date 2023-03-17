@@ -238,7 +238,25 @@ Ext.extend(FastUploadTV.form.FastUploadTVField,Ext.form.TextField,{
 
 
     ,onClearButtonClick: function(){
-        this.onUploadSuccess({result:{message:''}});
+        var _this = this;
+
+        MODx.msg.confirm({
+            text: _('file_confirm_remove')
+            ,url: MODx.config.connector_url
+            ,params: {
+                action: 'browser/file/remove'
+                ,file: this.value
+                ,wctx: MODx.ctx || 'web'
+                ,source: this.ms_id
+            }
+            ,listeners: {
+                success: {
+                    fn: function() {
+                      _this.onUploadSuccess({result:{message:''}});
+                    }
+                }
+            }
+        });
     }
 
 

@@ -1,6 +1,11 @@
 --------------------
 Extra: FastUploadTV
 --------------------
+# Version 1.0.1-pl
+ :: Fixed the error "File already exists"
+ :: Fixed the error "In other contexts, the source path does not cling"
+ :: Added physical removal of files
+
 # Version 1.0.0-pl
  :: Fixed placeholder {rand}
  :: Event OnWebPageInit changed to OnModxInit
