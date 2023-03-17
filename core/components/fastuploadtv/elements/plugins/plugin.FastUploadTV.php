@@ -43,7 +43,7 @@ switch ($modx->event->name) {
                     $filename = trim($filename, '-'); // remove first symbol "-"
                     
                     $newPath = $filename . '.' . strtolower($pathInfo['extension']);
-                    
+
                     if ($newPath !== $file['name']) {
                         $source->renameObject($oldPath, $newPath);
                     }
