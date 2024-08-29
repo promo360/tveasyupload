@@ -24,10 +24,6 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
     }
     
     public function process() {
-        if (!$this->getSource()) {
-            return $this->failure($this->modx->lexicon('permission_denied'));
-        }
-        
         // Check a file has been uploaded
         if (count($_FILES) < 1) {
             return $this->failure($this->modx->lexicon('fastuploadtv.err_file_ns'));
