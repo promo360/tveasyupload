@@ -24,10 +24,6 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
     }
     
     public function process() {
-        if (!$this->getSource()) {
-            return $this->failure($this->modx->lexicon('permission_denied'));
-        }
-        
         // Check a file has been uploaded
         if (count($_FILES) < 1) {
             return $this->failure($this->modx->lexicon('fastuploadtv.err_file_ns'));
@@ -45,7 +41,12 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
         }
         
         // Initialize and check perms for this mediasource
-        $this->source = $TV->getSource('web');
+        if (!$this->getSource()) {
+            return $this->failure($this->modx->lexicon('permission_denied'));
+        }
+        $this->source->setRequestProperties([
+            'source' => $this->getProperty('ms_id'),
+        ]);
         $this->source->initialize();
         if (!$this->source->checkPolicy('create')) {
             return $this->failure($this->modx->lexicon('permission_denied'));
@@ -164,6 +165,25 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
             '{s}' => date('s'), // Second
         );
         return str_replace(array_keys($bits), $bits, $str);
+    }
+    
+    /**
+     * Get the active Source
+     * @return modMediaSource|boolean
+     */
+    public function getSource() {
+        $this->modx->loadClass('sources.modMediaSource');
+        $this->source = modMediaSource::getDefaultSource($this->modx,$this->getProperty('ms_id'));
+
+        $resource = $this->modx->getObject('modResource', $this->getProperty('res_id'));
+        $wctx = ($resource->get('context_key') != 'web') ? $resource->get('context_key') : '';
+        if ($wctx) {
+                $this->source->setProperty('wctx', $wctx);
+        }
+        if (empty($this->source) || !$this->source->getWorkingContext()) {
+            return false;
+        }
+        return $this->source;
     }
 }
 return 'fastBrowserFileUploadProcessor';
