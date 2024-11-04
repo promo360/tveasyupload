@@ -176,7 +176,7 @@ class fastBrowserFileUploadProcessor extends modBrowserFileUploadProcessor {
         $this->source = modMediaSource::getDefaultSource($this->modx,$this->getProperty('ms_id'));
 
         $resource = $this->modx->getObject('modResource', $this->getProperty('res_id'));
-        $wctx = ($resource->get('context_key') != 'web') ? $resource->get('context_key') : '';
+        $wctx = ($resource && $resource->get('context_key') != 'web') ? $resource->get('context_key') : '';
         if ($wctx) {
                 $this->source->setProperty('wctx', $wctx);
         }
